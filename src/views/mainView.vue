@@ -6,22 +6,26 @@
 				<p>{{this.timer.display}}</p>
 			</div>
 		</div>
-		<div style="display: flex; justify-content: center; gap: 5px; margin-top: 5px">
-			<circleButton @click="this.stopTimer" icon="restart"/>
+		<div style="display: flex; justify-content: center; gap: 7px; margin-top: 7px">
+			<circleButton @click="this.resetTimer" icon="restart"/>
 			<circleButton @click="this.pauseTimer" v-if="this.timer.running" icon="pause"/>
-			<circleButton @click="startTimer" v-else icon="resume"/>
-			<circleButton @click="stopTimer" icon="stop"/>
+			<circleButton @click="this.startTimer" v-else icon="resume"/>
+			<circleButton @click="this.stopTimer" icon="stop"/>
 		</div>
 	</div>
+
+	<finishedTimerModal v-if="this.timer.finished" @closeModal="this.timer.finished = false"/>
 </template>
 
 <script>
 import circleButton from '@/components/buttons/circleButton.vue'
+import finishedTimerModal from "@/modals/finishedTimerModal.vue";
 
 export default {
 	name: 'mainView',
 	components: {
-		circleButton
+		circleButton,
+		finishedTimerModal
 	},
 	data() {
 		return {
@@ -66,13 +70,26 @@ export default {
 			clearInterval(this.timer.object);
 		},
 
+		resetTimer() {
+			this.timer.running = false
+			clearInterval(this.timer.object);
+			this.timer.value = 0
+			this.changeTimerFormat();
+		},
+
 		stopTimer() {
 			this.timer.running = false
 			clearInterval(this.timer.object);
 			this.timer.value = 0
 			this.changeTimerFormat();
+			this.timer.finished = true
 		}
 
+	},
+
+	beforeMount() {
+		this.changeTimerFormat()
+		this.resetTimer()
 	}
 }
 
@@ -98,6 +115,11 @@ export default {
 	width: 300px;
 	height: 150px;
 	border-radius: 15px;
+}
+
+p {
+	color: lightgrey;
+	font-size: xxx-large;
 }
 
 </style>
