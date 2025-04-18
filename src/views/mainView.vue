@@ -1,7 +1,10 @@
 <template>
 	<div id="background"></div>
 	<div>
-		<div style="display: flex; justify-content: center; flex-direction: row">
+		<div style="display: flex; justify-content: center; align-items: center; flex-direction: column">
+			<div>
+				<img style="height: 200px" src="/images/workingKitty.gif" alt="working kitty" />
+			</div>
 			<div id="timerBox">
 				<p>{{this.timer.display}}</p>
 			</div>
@@ -19,7 +22,7 @@
 
 <script>
 import circleButton from '@/components/buttons/circleButton.vue'
-import finishedTimerModal from "@/modals/finishedTimerModal.vue";
+import finishedTimerModal from '@/modals/finishedTimerModal.vue'
 
 export default {
 	name: 'mainView',
@@ -34,7 +37,7 @@ export default {
 				running: false,
 				display: "00:00",
 				finished: false
-			}
+			},
 		}
 	},
 	methods: {
@@ -115,6 +118,8 @@ export default {
 	width: 300px;
 	height: 150px;
 	border-radius: 15px;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 p {
