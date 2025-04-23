@@ -126,6 +126,10 @@ export default {
 p {
 	color: lightgrey;
 	font-size: xxx-large;
+	font-family: "Chakra Petch", sans-serif;
+	font-weight: 400;
+	font-style: normal;
 }
+
 
 </style>
