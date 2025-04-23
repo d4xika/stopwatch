@@ -3,7 +3,8 @@
 	<div>
 		<div style="display: flex; justify-content: center; align-items: center; flex-direction: column">
 			<div>
-				<img style="height: 200px" src="/images/workingKitty.gif" alt="working kitty" />
+				<img v-if="this.timer.running" style="height: 200px; margin-bottom: 5px" src="/images/workingKitty.gif" alt="working kitty" />
+				<img v-else style="height: 160px; margin-top: 45px" src="/images/sleepingKitty.GIF" alt="sleeping kitty" />
 			</div>
 			<div id="timerBox">
 				<p>{{this.timer.display}}</p>
