@@ -12,8 +12,9 @@ export default {
 
 <style scoped>
 #closeButton {
+	fill: white;
 	cursor: pointer;
-	width: 40px;
+	width: 35px;
 }
 
 </style>

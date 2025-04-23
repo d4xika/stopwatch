@@ -2,7 +2,7 @@
 	<div id="dimmBackground">
 		<div id="modal">
 			<closeButton @click="this.$emit('closeModal')" id="closeButton"/>
-			<p>Great job! :)</p>
+			<p>Great job!</p>
 		</div>
 	</div>
 </template>
@@ -46,13 +46,16 @@ export default {
 
 #closeButton {
 	position: absolute;
-	right: 5px;
-	top: 5px;
+	right: 10px;
+	top: 10px;
 }
 
 p {
 	color: white;
 	font-size: x-large;
+	font-family: "Chakra Petch", sans-serif;
+	font-weight: 400;
+	font-style: normal;
 }
 
 </style>
